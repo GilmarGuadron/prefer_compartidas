@@ -28,3 +28,8 @@ class _MyAppState extends State<MyApp> {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('isDarkMode', isDarkMode);
   }
+  // Método para obtener el tema guardado
+  Future<bool> getThemePreference() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isDarkMode') ?? false; 
+  }
