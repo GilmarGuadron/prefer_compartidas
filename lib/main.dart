@@ -52,4 +52,14 @@ class _MyAppState extends State<MyApp> {
                   setState(() {
                     isDarkMode = value;
                   });
-                  
+                   // Guarda el tema seleccionado
+                  saveThemePreference(isDarkMode);
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
