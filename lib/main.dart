@@ -33,3 +33,11 @@ class _MyAppState extends State<MyApp> {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('isDarkMode') ?? false; 
   }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Shared Preferences Example'),
+        ),
