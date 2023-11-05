@@ -41,3 +41,15 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Shared Preferences Example'),
         ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Tema Oscuro'),
+              Switch(
+                value: isDarkMode,
+                onChanged: (value) {
+                  setState(() {
+                    isDarkMode = value;
+                  });
+                  
