@@ -23,3 +23,8 @@ class _MyAppState extends State<MyApp> {
       });
     });
   }
+  // Método para guardar el tema seleccionado
+  Future<void> saveThemePreference(bool isDarkMode) async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isDarkMode', isDarkMode);
+  }
