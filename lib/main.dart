@@ -36,10 +36,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Shared Preferences Example'),
+          title: Text('Preferencias compartidas, ejemplo'),
         ),
         body: Center(
           child: Column(
@@ -55,11 +56,30 @@ class _MyAppState extends State<MyApp> {
                    // Guarda el tema seleccionado
                   saveThemePreference(isDarkMode);
                 },
+                
               ),
+              ElevatedButton(
+  onPressed: () {
+    final prefs = SharedPreferences.getInstance();
+    prefs.then((preferences) {
+      preferences.remove('isDarkMode');
+    });
+
+    setState(() {
+      isDarkMode = false;
+    });
+  },
+  child: Text('Quitar Configuración del Tema'),
+),
+
+              
             ],
           ),
         ),
       ),
     );
   }
+  
+  void resetThemePreference() {}
 }
+
